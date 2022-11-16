@@ -8,13 +8,11 @@ const username = 'laura-gardner';
 const getData = async () => {
     const res = await fetch(`https://api.github.com/users/${username}`)
     const data = await res.json();
-    return data;
+    displayData(data);
 }
 
 //Function to display the fetched user information on the page
-const displayData = async () => {
-    const data = await getData();
-    console.log(data);
+const displayData = async (data) => {
     const newDiv = document.createElement('div');
     newDiv.classList.add('user-info');
     newDiv.innerHTML = `
@@ -27,8 +25,8 @@ const displayData = async () => {
             <p><strong>Location:</strong> ${data.location}</p>
             <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
         </div> 
-    `
+    `;
     overview.appendChild(newDiv);
-}
+};
 
-displayData();
+getData();
