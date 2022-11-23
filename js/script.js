@@ -4,6 +4,9 @@ const overview = document.querySelector('.overview');
 // Variable containing github username
 const username = 'laura-gardner';
 
+//Variable targeying unordered list for repo
+const repoList = document.querySelector('.repo-list');
+
 //Function to fetch data from API (users endpoint)
 const getData = async () => {
     const res = await fetch(`https://api.github.com/users/${username}`)
@@ -27,6 +30,33 @@ const displayData = async (data) => {
         </div> 
     `;
     overview.appendChild(newDiv);
+    getRepoList();
 };
 
 getData();
+
+const getRepoList = async () => {
+    try {
+        const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+        const data = await res.json();
+        displayRepos(data);
+    } catch (e) {
+        console.log("There was an error!")
+        console.error(e)
+    }
+}
+
+const displayRepos = async (repos) => {
+    try {
+        repos.forEach(repo => {
+            const repoItem = document.createElement('li');
+            repoItem.classList.add('repo');
+            repoItem.innerHTML = `<h3>${repo.name}</h3>`;
+            repoList.append(repoItem);
+        });
+        }
+    catch (e) {
+        console.log("There was an error!")
+        console.log(e)
+    }
+}

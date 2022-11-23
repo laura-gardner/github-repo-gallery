@@ -3,8 +3,8 @@
 }
 
 :root {
-    --background: #646F86;
-    --highlight: #EDEDF3; 
+    --dark: #646F86;
+    --light: #EDEDF3; 
     --contrast: #D5C97F;  
     --lowOpacityContrast: hsla(52, 51%, 67%, 0.2);
 }
@@ -34,7 +34,7 @@ body {
 }
 
 .fa-github-alt {
-    color: var(--highlight);
+    color: var(--light);
 }
 
 img {
@@ -53,8 +53,8 @@ h1 {
     font-family: 'Crimson Text', serif;
     font-weight: 600;
     font-style: italic;
-    background-color: var(--background);
-    color: var(--highlight);
+    background-color: var(--dark);
+    color: var(--light);
     text-transform: lowercase;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -91,7 +91,7 @@ h1 {
 h3 {
     width: 100%;
     text-align: center;
-    color: var(--contrast);
+    color: var(--dark);
 }
 
 ul {
@@ -118,8 +118,8 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--background);
-    color: var(--highlight);
+    background-color: var(--dark);
+    color: var(--light);
     font-size: 18px;
     padding-bottom: 2em;
 }
@@ -155,11 +155,11 @@ ul {
     margin-top: 1em;
     padding: 1em;
     margin-bottom: 1em;
-    border: 2px solid var(--background);
+    border: 2px solid var(--dark);
 }
 
 section.repo-data {
-    background-color: var(--highlight);
+    background-color: var(--light);
     padding: 2em;
     padding-bottom: 1em;
 }
@@ -168,7 +168,7 @@ section.repo-data {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: var(--highlight);
+    background-color: var(--light);
     margin-top: 0;
     padding: 2em;
 }
@@ -184,7 +184,7 @@ section.repo-data {
 .repo-list li {
     width: 90%;
     margin: 1em 0;
-    border: 1px solid var(--contrast);
+    border: 1px solid var(--dark);
     padding: 0.5em;
 }
 
@@ -195,7 +195,7 @@ section.repo-data {
 }
 
 .repo-list h3:hover {
-    background-color: #eee9ff;
+    background-color:var(--contrast);
     cursor: pointer;
 }
 
