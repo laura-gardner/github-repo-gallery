@@ -215,18 +215,21 @@ section.repo-data {
 .repo-data .visit {
     text-decoration: none;
     max-width: 200px;
-    color: #fff;
+    color: var(--light);
     padding: 0.75em;
     margin-top: 2em;
     cursor: pointer;
     display: block;
-    background-color: #483978;
-    border: 1px solid #483978;
+    background-color: var(--dark);
+    border: 1px solid var(--dark);
+    text-align: center;
+    border-radius: 15px;
 }
 
 .repo-data .visit:hover {
-    background-color: #2f2550;
-    border: 1px solid #ccc;
+    background-color: var(--contrast);
+    color: var(--dark);
+    border: 1px solid var(--contrast);
 }
 
 .button-container {
