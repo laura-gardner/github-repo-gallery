@@ -13,6 +13,12 @@ const reposSection = document.querySelector('.repos');
 //Variable to select the section with class of repo-data
 const repoData = document.querySelector('.repo-data');
 
+//Variable to select the Back to Repo Gallery button
+const backToGalleryButton = document.querySelector('.view-repos');
+
+//Variable to seleect the input wiht 'Search by name' placeholder
+const filterRepos = document.querySelector('.filter-repos');
+
 //Function to fetch data from API (users endpoint)
 const getData = async () => {
     const res = await fetch(`https://api.github.com/users/${username}`)
@@ -54,6 +60,7 @@ const getRepoList = async () => {
 
 const displayRepos = async (repos) => {
     try {
+        filterRepos.classList.toggle('hide');
         repos.forEach(repo => {
             const repoItem = document.createElement('li');
             repoItem.classList.add('repo');
@@ -104,4 +111,24 @@ const displaySpecificRepoInfo = async (repoInfo, languages) => {
     repoData.append(repoDiv);
     repoData.classList.toggle('hide');
     reposSection.classList.toggle('hide');
+    backToGalleryButton.classList.toggle('hide');
 }
+
+backToGalleryButton.addEventListener('click', function () {
+    reposSection.classList.toggle('hide');
+    repoData.classList.toggle('hide');
+    backToGalleryButton.classList.toggle('hide');
+})
+
+filterRepos.addEventListener('input', (e) => {
+    searchTerm = e.target.value;
+    const repos = document.querySelectorAll('.repo');
+    const searchTermLower = searchTerm.toLowerCase();
+    repos.forEach((repo) => {
+        const repoInnerText = repo.innerText;
+        if (!repoInnerText.includes(searchTermLower)) {
+            repo.classList.add('hide');
+        } else {repo.classList.remove('hide')}
+        console.log(searchTermLower);
+    })
+})
